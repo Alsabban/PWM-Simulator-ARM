@@ -1,5 +1,6 @@
 MEDIA/
 settings/
+Debug/
 *.dep
 *.ewd
 *.ewp
