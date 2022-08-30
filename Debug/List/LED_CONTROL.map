@@ -1,0 +1,234 @@
+###############################################################################
+#
+# IAR ELF Linker V9.20.4.327/W64 for ARM                  24/Aug/2022  05:20:37
+# Copyright 2007-2022 IAR Systems AB.
+#
+#    Output file  =
+#        C:\Users\Youssef\Documents\LED_Control\COTS\Debug\Exe\LED_CONTROL.out
+#    Map file     =
+#        C:\Users\Youssef\Documents\LED_Control\COTS\Debug\List\LED_CONTROL.map
+#    Command line =
+#        -f
+#        C:\Users\Youssef\Documents\LED_Control\COTS\Debug\Exe\LED_CONTROL.out.rsp
+#        (C:\Users\Youssef\Documents\LED_Control\COTS\Debug\Obj\cstartup_M.o
+#        C:\Users\Youssef\Documents\LED_Control\COTS\Debug\Obj\MCAL\GPIO.o
+#        C:\Users\Youssef\Documents\LED_Control\COTS\Debug\Obj\APPLICATON\main.o
+#        C:\Users\Youssef\Documents\LED_Control\COTS\Debug\Obj\MCAL\Port.o
+#        C:\Users\Youssef\Documents\LED_Control\COTS\Debug\Obj\MCAL\Systick.o
+#        --no_out_extension -o
+#        C:\Users\Youssef\Documents\LED_Control\COTS\Debug\Exe\LED_CONTROL.out
+#        --redirect _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb
+#        --map
+#        C:\Users\Youssef\Documents\LED_Control\COTS\Debug\List\LED_CONTROL.map
+#        --config "D:\Program Files\IAR Systems\Embedded Workbench
+#        9.0\arm\config\linker\TexasInstruments\TM4C123GH6.icf" --semihosting
+#        --entry __iar_program_start --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__CPP_Runtime   = 1
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because some modules are built with
+size limitations (and not runtime checking), and --advanced_heap
+was not specified.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0x3'ffff] { ro };
+define block CSTACK with size = 4K, alignment = 8 { };
+define block HEAP with size = 8K, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2000'7fff] {
+          rw, block CSTACK, block HEAP };
+
+  Section          Kind         Address    Size  Object
+  -------          ----         -------    ----  ------
+"A0":                                      0x40
+  .intvec          const            0x0    0x40  cstartup_M.o [1]
+                                 - 0x40    0x40
+
+"P1":                                     0x67a
+  .text            ro code         0x40   0x3fc  Port.o [3]
+  .text            ro code        0x43c    0x94  GPIO.o [3]
+  .text            ro code        0x4d0    0x74  main.o [2]
+  .text            ro code        0x544    0x44  Systick.o [3]
+  .text            ro code        0x588    0x38  zero_init3.o [6]
+  .rodata          const          0x5c0    0x30  Port.o [3]
+  .text            ro code        0x5f0    0x28  data_init.o [6]
+  .text            ro code        0x618    0x22  fpinit_M.o [5]
+  .iar.init_table  const          0x63c    0x10  - Linker created -
+  .text            ro code        0x64c     0x2  cstartup_M.o [1]
+  .text            ro code        0x650    0x1e  cmain.o [6]
+  .text            ro code        0x66e     0x4  low_level_init.o [4]
+  .text            ro code        0x672     0x4  exit.o [4]
+  .text            ro code        0x676     0x2  cstartup_M.o [1]
+  .text            ro code        0x678     0xa  cexit.o [6]
+  .text            ro code        0x682     0x2  cstartup_M.o [1]
+  .text            ro code        0x684    0x14  exit.o [7]
+  .text            ro code        0x698    0x10  cstartup_M.o [1]
+  .rodata          const          0x6a8     0x8  Port.o [3]
+  .text            ro code        0x6b0     0x2  cstartup_M.o [1]
+  .text            ro code        0x6b2     0x2  cstartup_M.o [1]
+  .text            ro code        0x6b4     0x2  cstartup_M.o [1]
+  .text            ro code        0x6b6     0x2  cstartup_M.o [1]
+  .text            ro code        0x6b8     0x2  cstartup_M.o [1]
+  .rodata          const          0x6ba     0x0  zero_init3.o [6]
+                                - 0x6ba   0x67a
+
+"P2", part 1 of 2:                         0x10
+  .bss             zero     0x2000'0000     0x4  main.o [2]
+  .bss             zero     0x2000'0004     0x4  main.o [2]
+  .bss             zero     0x2000'0008     0x4  main.o [2]
+  .bss             zero     0x2000'000c     0x4  Systick.o [3]
+                          - 0x2000'0010    0x10
+
+"P2", part 2 of 2:                       0x1000
+  CSTACK                    0x2000'0010  0x1000  <Block>
+    CSTACK         uninit   0x2000'0010  0x1000  <Block tail>
+                          - 0x2000'1010  0x1000
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+        0x6ba     0x3'ffff  0x3'f946
+  0x2000'1010  0x2000'7fff    0x6ff0
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x10:
+          0x2000'0000  0x10
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module            ro code  ro data  rw data
+    ------            -------  -------  -------
+command line/config:
+    -------------------------------------------
+    Total:
+
+C:\Users\Youssef\Documents\LED_Control\COTS\Debug\Obj: [1]
+    cstartup_M.o           32       64
+    -------------------------------------------
+    Total:                 32       64
+
+C:\Users\Youssef\Documents\LED_Control\COTS\Debug\Obj\APPLICATON: [2]
+    main.o                116                12
+    -------------------------------------------
+    Total:                116                12
+
+C:\Users\Youssef\Documents\LED_Control\COTS\Debug\Obj\MCAL: [3]
+    GPIO.o                148
+    Port.o              1'020       56
+    Systick.o              68                 4
+    -------------------------------------------
+    Total:              1'236       56        4
+
+dl7M_tln.a: [4]
+    exit.o                  4
+    low_level_init.o        4
+    -------------------------------------------
+    Total:                  8
+
+m7M_tls.a: [5]
+    fpinit_M.o             34
+    -------------------------------------------
+    Total:                 34
+
+rt7M_tl.a: [6]
+    cexit.o                10
+    cmain.o                30
+    data_init.o            40
+    zero_init3.o           56
+    -------------------------------------------
+    Total:                136
+
+shb_l.a: [7]
+    exit.o                 20
+    -------------------------------------------
+    Total:                 20
+
+    Gaps                    2        2
+    Linker created                  16    4'096
+-----------------------------------------------
+    Grand Total:        1'584      138    4'112
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.init_table$$Base         0x63c          --   Gb  - Linker created -
+.iar.init_table$$Limit        0x64c          --   Gb  - Linker created -
+?main                         0x651         Code  Gb  cmain.o [6]
+BlinkingLed                   0x4d1   0x3a  Code  Gb  main.o [2]
+CSTACK$$Base            0x2000'0010          --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'1010          --   Gb  - Linker created -
+GPIO_WritePin                 0x43d   0x90  Code  Gb  GPIO.o [3]
+Off_Time                0x2000'0008    0x4  Data  Gb  main.o [2]
+On_Time                 0x2000'0004    0x4  Data  Gb  main.o [2]
+Pins_cfg                      0x5c0   0x30  Data  Lc  Port.o [3]
+Port_Init                      0x41  0x3fc  Code  Gb  Port.o [3]
+Ports_cfg                     0x6a8    0x8  Data  Lc  Port.o [3]
+Region$$Table$$Base           0x63c          --   Gb  - Linker created -
+Region$$Table$$Limit          0x64c          --   Gb  - Linker created -
+SysTick_Handler               0x563   0x10  Code  Gb  Systick.o [3]
+Systick_SetCallback           0x55d    0x6  Code  Gb  Systick.o [3]
+Systick_Start                 0x545   0x18  Code  Gb  Systick.o [3]
+__cmain                       0x651         Code  Gb  cmain.o [6]
+__exit                        0x685   0x14  Code  Gb  exit.o [7]
+__iar_data_init3              0x5f1   0x28  Code  Gb  data_init.o [6]
+__iar_init_vfp                0x619         Code  Gb  fpinit_M.o [5]
+__iar_program_start           0x699   0x10  Code  Gb  cstartup_M.o [1]
+__iar_zero_init3              0x589   0x38  Code  Gb  zero_init3.o [6]
+__low_level_init              0x66f    0x4  Code  Gb  low_level_init.o [4]
+__vector_table                  0x0   0x40  Data  Gb  cstartup_M.o [1]
+_call_main                    0x65d         Code  Gb  cmain.o [6]
+_exit                         0x679         Code  Gb  cexit.o [6]
+exit                          0x673    0x4  Code  Gb  exit.o [4]
+g_SYSTICK_callBackPtr   0x2000'000c    0x4  Data  Lc  Systick.o [3]
+main                          0x50d   0x28  Code  Gb  main.o [2]
+timeCnt                 0x2000'0000    0x4  Data  Gb  main.o [2]
+
+
+[1] = C:\Users\Youssef\Documents\LED_Control\COTS\Debug\Obj
+[2] = C:\Users\Youssef\Documents\LED_Control\COTS\Debug\Obj\APPLICATON
+[3] = C:\Users\Youssef\Documents\LED_Control\COTS\Debug\Obj\MCAL
+[4] = dl7M_tln.a
+[5] = m7M_tls.a
+[6] = rt7M_tl.a
+[7] = shb_l.a
+
+  1'584 bytes of readonly  code memory
+    138 bytes of readonly  data memory
+  4'112 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
