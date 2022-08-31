@@ -38,9 +38,12 @@ void GPIO_WritePin (GPIO_PinType PinId, GPIO_LevelType Level)
 {
 	GPIO_PortID PORT = (uint8) (PinId / 10);
 	GPIO_Pins	  PIN	= PinId % 10;
-	
-	SET_BIT(GPIO_DIR(PORT), PinId);
-	GPIO_DATA(PORT).R |=(uint32) Level << PIN;
+	if(Level==HIGH){
+          SET_BIT(GPIO_DATA(PORT).R,PIN);
+        }
+        else if (Level==LOW){
+          CLEAR_BIT(GPIO_DATA(PORT).R,PIN);
+        }
 }
 
 
